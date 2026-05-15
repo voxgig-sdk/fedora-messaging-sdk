@@ -1,0 +1,46 @@
+{
+  "existing": {
+    "search": {
+      "SEARCH00": {
+        "category": "s46",
+        "i": "s47",
+        "msg": {},
+        "msg_id": "MSG01",
+        "timestamp": 74,
+        "topic": "s4b",
+        "username": "s4c"
+      },
+      "SEARCH01": {
+        "category": "s8c",
+        "i": "s8d",
+        "msg": {},
+        "msg_id": "MSG01",
+        "timestamp": 144,
+        "topic": "s91",
+        "username": "s92"
+      },
+      "SEARCH02": {
+        "category": "sd2",
+        "i": "sd3",
+        "msg": {},
+        "msg_id": "MSG01",
+        "timestamp": 214,
+        "topic": "sd7",
+        "username": "sd8"
+      }
+    }
+  },
+  "new": {
+    "search": {
+      "search_ref01": {
+        "category": "s118",
+        "i": "s119",
+        "msg": {},
+        "msg_id": "MSG01",
+        "timestamp": 284,
+        "topic": "s11d",
+        "username": "s11e"
+      }
+    }
+  }
+}

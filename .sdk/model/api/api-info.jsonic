@@ -1,0 +1,28 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        name: "Fedora Project"
+        url: "https://apps.fedoraproject.org/datagrepper/"
+      }
+      description: "Retrieve historical messages sent via Fedora Messaging using HTTP GET requests. Query by username, package, message source, topic, etc. Datagrepper is a web application and JSON API to retrieve historical messages sent via Fedora Messaging."
+      license: {
+        name: "Red Hat and others"
+        url: "https://apps.fedoraproject.org/datagrepper/"
+      }
+      servers: [
+        {
+          description: "Production server"
+          url: "https://apps.fedoraproject.org/datagrepper/v2"
+        }
+      ]
+      title: "Fedora Messaging API"
+      version: "2.0.0"
+    }
+  }
+}
+
+}
