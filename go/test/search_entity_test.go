@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/fedora-messaging-sdk"
-	"github.com/voxgig-sdk/fedora-messaging-sdk/core"
+	sdk "github.com/voxgig-sdk/fedora-messaging-sdk/go"
+	"github.com/voxgig-sdk/fedora-messaging-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/fedora-messaging-sdk/go/utility/struct"
 )
 
 func TestSearchEntity(t *testing.T) {

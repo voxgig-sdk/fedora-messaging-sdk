@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/fedora-messaging-sdk"
-	"github.com/voxgig-sdk/fedora-messaging-sdk/core"
+	sdk "github.com/voxgig-sdk/fedora-messaging-sdk/go"
+	"github.com/voxgig-sdk/fedora-messaging-sdk/go/core"
 )
 
 func TestSearchDirect(t *testing.T) {

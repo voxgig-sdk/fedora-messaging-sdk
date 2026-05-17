@@ -1,9 +1,9 @@
 package entity
 
 import (
-	"github.com/voxgig-sdk/fedora-messaging-sdk/core"
+	"github.com/voxgig-sdk/fedora-messaging-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/fedora-messaging-sdk/go/utility/struct"
 )
 
 type SearchEntity struct {

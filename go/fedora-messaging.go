@@ -1,10 +1,10 @@
 package voxgigfedoramessagingsdk
 
 import (
-	"github.com/voxgig-sdk/fedora-messaging-sdk/core"
-	"github.com/voxgig-sdk/fedora-messaging-sdk/entity"
-	"github.com/voxgig-sdk/fedora-messaging-sdk/feature"
-	_ "github.com/voxgig-sdk/fedora-messaging-sdk/utility"
+	"github.com/voxgig-sdk/fedora-messaging-sdk/go/core"
+	"github.com/voxgig-sdk/fedora-messaging-sdk/go/entity"
+	"github.com/voxgig-sdk/fedora-messaging-sdk/go/feature"
+	_ "github.com/voxgig-sdk/fedora-messaging-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

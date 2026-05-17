@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"github.com/voxgig-sdk/fedora-messaging-sdk/core"
+	"github.com/voxgig-sdk/fedora-messaging-sdk/go/core"
 )
 
 type BaseFeature struct {

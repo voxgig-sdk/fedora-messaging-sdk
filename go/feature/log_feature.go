@@ -4,7 +4,7 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/voxgig-sdk/fedora-messaging-sdk/core"
+	"github.com/voxgig-sdk/fedora-messaging-sdk/go/core"
 )
 
 type LogFeature struct {
