@@ -21,8 +21,29 @@ main: {
       ]
       title: "Fedora Messaging API"
       version: "2.0.0"
+      tagline: "Query historical Fedora Messaging events by user, package, topic, or time range"
+      homepage: "https://apps.fedoraproject.org/datagrepper/"
+      docs_url: "https://apps.fedoraproject.org/datagrepper/reference/"
+      license_short: "Copyright Red Hat, Inc. and contributors; open source via the Fedora Infrastructure project."
+      license_md: `- Datagrepper is developed by Red Hat and Fedora Infrastructure contributors.
+- Source code is hosted on GitHub under the Fedora Infra organisation.
+- Message data is part of the public Fedora project event stream and can be reused subject to Fedora's project policies.
+- No API key is required to query the public endpoint; please be considerate with request volume.`
+      about_md: `Datagrepper is a web application and JSON API that lets you retrieve historical messages sent across the [Fedora Messaging](https://fedora-messaging.readthedocs.io/) bus. It is operated by the [Fedora Project](https://fedoraproject.org/) infrastructure team and queries messages that have been consumed and persisted by the companion service Datanommer.
+
+What you get from the API:
+
+- Search across Fedora's full historical message archive (Bodhi updates, wiki edits, Koji builds, askbot activity, and more).
+- Filter by \`category\`, \`user\`, \`package\`, \`topic\`, or \`agent\`, with corresponding \`not_*\` negative filters that exclude matches.
+- Time-window queries via \`start\` and \`end\` (POSIX timestamps or ISO 8601) or a rolling \`delta\` in seconds.
+- Pagination with \`page\` and \`rows_per_page\`, plus ordering via \`order=desc\` (default) or \`order=asc\`.
+- JSON responses containing the echoed query arguments, pagination metadata, total count, and a \`raw_messages\` array.
+
+Operational notes: the public base URL is \`https://apps.fedoraproject.org/datagrepper/v2\`, the API is unauthenticated, and CORS is not enabled (call it server-side or via a proxy). Reference documentation lives at \`/datagrepper/reference/\` and help is available in \`#fedora-apps\` on Libera Chat.`
+      entity_desc: {
+        search: "Historical Fedora Messaging events; queried via `GET /v2/search` with category, user, package, topic, agent, and time-range filters."
+      }
+      auth: false
     }
   }
-}
-
 }

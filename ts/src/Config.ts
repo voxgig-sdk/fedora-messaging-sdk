@@ -38,10 +38,6 @@ class Config {
   options = {
     base: 'https://apps.fedoraproject.org/datagrepper/v2',
 
-    auth: {
-      prefix: 'Bearer',
-    },
-
     headers: {
       "content-type": "application/json"
     },
