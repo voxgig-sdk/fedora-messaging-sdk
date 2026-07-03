@@ -8,12 +8,14 @@ source = {
   dir = "fedora-messaging-sdk/lua"
 }
 description = {
-  summary = "FedoraMessaging SDK for Lua",
-  license = "MIT"
+  summary = "Unofficial generated Lua SDK for the Fedora Messaging public API. Not affiliated with or endorsed by the upstream API provider.",
+  homepage = "https://github.com/voxgig-sdk/fedora-messaging-sdk",
+  issues_url = "https://github.com/voxgig-sdk/fedora-messaging-sdk/issues",
+  license = "MIT",
+  labels = { "voxgig", "sdk", "generated-sdk", "openapi", "api-client", "fedora-messaging" }
 }
 dependencies = {
   "lua >= 5.3",
-  "dkjson >= 2.5",
   "dkjson >= 2.5",
 }
 build = {

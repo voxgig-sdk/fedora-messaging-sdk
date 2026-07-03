@@ -10,13 +10,13 @@ The Ruby SDK for the FedoraMessaging API — an entity-oriented client using idi
 
 ## Install
 ```bash
-gem install fedora-messaging-sdk
+gem install voxgig-sdk-fedora-messaging
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "fedora-messaging-sdk"
+gem "voxgig-sdk-fedora-messaging"
 ```
 
 Then run:

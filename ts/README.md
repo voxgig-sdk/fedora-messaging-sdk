@@ -10,7 +10,7 @@ The TypeScript SDK for the FedoraMessaging API — a type-safe, entity-oriented 
 
 ## Install
 ```bash
-npm install fedora-messaging
+npm install @voxgig-sdk/fedora-messaging
 ```
 ## Tutorial: your first API call
 

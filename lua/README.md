@@ -10,7 +10,7 @@ The Lua SDK for the FedoraMessaging API — an entity-oriented client using Lua 
 
 ## Install
 ```bash
-luarocks install fedora-messaging-sdk
+luarocks install voxgig-sdk-fedora-messaging
 ```
 
 If the module is not yet published, add the source directory to

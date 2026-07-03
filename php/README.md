@@ -10,7 +10,7 @@ The PHP SDK for the FedoraMessaging API — an entity-oriented client using PHP 
 
 ## Install
 ```bash
-composer require voxgig/fedora-messaging-sdk
+composer require voxgig-sdk/fedora-messaging
 ```
 
 

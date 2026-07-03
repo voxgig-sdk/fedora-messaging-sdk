@@ -10,7 +10,7 @@ The Python SDK for the FedoraMessaging API — an entity-oriented client followi
 
 ## Install
 ```bash
-pip install fedora-messaging-sdk
+pip install voxgig-sdk-fedora-messaging
 ```
 
 Or install from source:
