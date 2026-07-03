@@ -83,6 +83,7 @@ def search_basic_setup(extra)
     "FEDORAMESSAGING_TEST_SEARCH_ENTID" => idmap,
     "FEDORAMESSAGING_TEST_LIVE" => "FALSE",
     "FEDORAMESSAGING_TEST_EXPLAIN" => "FALSE",
+    "FEDORAMESSAGING_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -94,6 +95,7 @@ def search_basic_setup(extra)
   if env["FEDORAMESSAGING_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
+        "apikey" => env["FEDORAMESSAGING_APIKEY"],
       },
       extra || {},
     ])

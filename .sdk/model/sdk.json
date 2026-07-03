@@ -1,44 +1,13 @@
 {
-  "name": "fedora-messaging",
-  "origin": "voxgig-sdk",
   "def": "fedora-messaging_0.1.0.json",
   "main": {
+    "def": {
+      "desc": ""
+    },
     "kit": {
-      "info": {
-        "contact": {
-          "name": "Fedora Project",
-          "url": "https://apps.fedoraproject.org/datagrepper/"
-        },
-        "description": "Retrieve historical messages sent via Fedora Messaging using HTTP GET requests. Query by username, package, message source, topic, etc. Datagrepper is a web application and JSON API to retrieve historical messages sent via Fedora Messaging.",
-        "license": {
-          "name": "Red Hat and others",
-          "url": "https://apps.fedoraproject.org/datagrepper/"
-        },
-        "servers": [
-          {
-            "description": "Production server",
-            "url": "https://apps.fedoraproject.org/datagrepper/v2"
-          }
-        ],
-        "title": "Fedora Messaging API",
-        "version": "2.0.0",
-        "tagline": "Query historical Fedora Messaging events by user, package, topic, or time range",
-        "homepage": "https://apps.fedoraproject.org/datagrepper/",
-        "docs_url": "https://apps.fedoraproject.org/datagrepper/reference/",
-        "license_short": "Copyright Red Hat, Inc. and contributors; open source via the Fedora Infrastructure project.",
-        "license_md": "- Datagrepper is developed by Red Hat and Fedora Infrastructure contributors.\n- Source code is hosted on GitHub under the Fedora Infra organisation.\n- Message data is part of the public Fedora project event stream and can be reused subject to Fedora's project policies.\n- No API key is required to query the public endpoint; please be considerate with request volume.",
-        "about_md": "Datagrepper is a web application and JSON API that lets you retrieve historical messages sent across the [Fedora Messaging](https://fedora-messaging.readthedocs.io/) bus. It is operated by the [Fedora Project](https://fedoraproject.org/) infrastructure team and queries messages that have been consumed and persisted by the companion service Datanommer.\n\nWhat you get from the API:\n\n- Search across Fedora's full historical message archive (Bodhi updates, wiki edits, Koji builds, askbot activity, and more).\n- Filter by `category`, `user`, `package`, `topic`, or `agent`, with corresponding `not_*` negative filters that exclude matches.\n- Time-window queries via `start` and `end` (POSIX timestamps or ISO 8601) or a rolling `delta` in seconds.\n- Pagination with `page` and `rows_per_page`, plus ordering via `order=desc` (default) or `order=asc`.\n- JSON responses containing the echoed query arguments, pagination metadata, total count, and a `raw_messages` array.\n\nOperational notes: the public base URL is `https://apps.fedoraproject.org/datagrepper/v2`, the API is unauthenticated, and CORS is not enabled (call it server-side or via a proxy). Reference documentation lives at `/datagrepper/reference/` and help is available in `#fedora-apps` on Libera Chat.",
-        "entity_desc": {
-          "search": "Historical Fedora Messaging events; queried via `GET /v2/search` with category, user, package, topic, agent, and time-range filters."
-        },
-        "auth": false
-      },
       "config": {
         "auth": {
           "prefix": "Bearer"
-        },
-        "headers": {
-          "content-type": "application/json"
         },
         "docs_order": [
           "ts",
@@ -47,202 +16,208 @@
           "go",
           "rb",
           "lua"
-        ]
+        ],
+        "headers": {
+          "content-type": "application/json"
+        }
       },
       "entity": {
         "search": {
+          "active": true,
           "alias": {
             "field": {}
           },
           "fields": [
             {
+              "active": true,
               "name": "category",
               "req": false,
-              "type": "`$STRING`",
-              "active": true
+              "type": "`$STRING`"
             },
             {
+              "active": true,
               "name": "i",
               "req": false,
-              "type": "`$INTEGER`",
-              "active": true
+              "type": "`$INTEGER`"
             },
             {
+              "active": true,
               "name": "msg",
               "req": false,
-              "type": "`$OBJECT`",
-              "active": true
+              "type": "`$OBJECT`"
             },
             {
+              "active": true,
               "name": "msg_id",
               "req": false,
-              "type": "`$STRING`",
-              "active": true
+              "type": "`$STRING`"
             },
             {
+              "active": true,
               "name": "timestamp",
               "req": false,
-              "type": "`$NUMBER`",
-              "active": true
+              "type": "`$NUMBER`"
             },
             {
+              "active": true,
               "name": "topic",
               "req": false,
-              "type": "`$STRING`",
-              "active": true
+              "type": "`$STRING`"
             },
             {
+              "active": true,
               "name": "username",
               "req": false,
-              "type": "`$STRING`",
-              "active": true
+              "type": "`$STRING`"
             }
           ],
           "name": "search",
           "op": {
             "list": {
+              "input": "data",
               "name": "list",
               "points": [
                 {
+                  "active": true,
                   "args": {
                     "query": [
                       {
+                        "active": true,
                         "kind": "query",
                         "name": "agent",
                         "orig": "agent",
                         "reqd": false,
-                        "type": "`$ARRAY`",
-                        "active": true
+                        "type": "`$ARRAY`"
                       },
                       {
+                        "active": true,
                         "example": "bodhi",
                         "kind": "query",
                         "name": "category",
                         "orig": "category",
                         "reqd": false,
-                        "type": "`$ARRAY`",
-                        "active": true
+                        "type": "`$ARRAY`"
                       },
                       {
+                        "active": true,
                         "example": 172800,
                         "kind": "query",
                         "name": "delta",
                         "orig": "delta",
                         "reqd": false,
-                        "type": "`$NUMBER`",
-                        "active": true
+                        "type": "`$NUMBER`"
                       },
                       {
+                        "active": true,
                         "example": "2021-06-25T06:11:40+00:00",
                         "kind": "query",
                         "name": "end",
                         "orig": "end",
                         "reqd": false,
-                        "type": "`$ANY`",
-                        "active": true
+                        "type": "`$ANY`"
                       },
                       {
+                        "active": true,
                         "kind": "query",
                         "name": "not_agent",
                         "orig": "not_agent",
                         "reqd": false,
-                        "type": "`$ARRAY`",
-                        "active": true
+                        "type": "`$ARRAY`"
                       },
                       {
+                        "active": true,
                         "example": "buildsys",
                         "kind": "query",
                         "name": "not_category",
                         "orig": "not_category",
                         "reqd": false,
-                        "type": "`$ARRAY`",
-                        "active": true
+                        "type": "`$ARRAY`"
                       },
                       {
+                        "active": true,
                         "kind": "query",
                         "name": "not_package",
                         "orig": "not_package",
                         "reqd": false,
-                        "type": "`$ARRAY`",
-                        "active": true
+                        "type": "`$ARRAY`"
                       },
                       {
+                        "active": true,
                         "kind": "query",
                         "name": "not_topic",
                         "orig": "not_topic",
                         "reqd": false,
-                        "type": "`$ARRAY`",
-                        "active": true
+                        "type": "`$ARRAY`"
                       },
                       {
+                        "active": true,
                         "kind": "query",
                         "name": "not_user",
                         "orig": "not_user",
                         "reqd": false,
-                        "type": "`$ARRAY`",
-                        "active": true
+                        "type": "`$ARRAY`"
                       },
                       {
+                        "active": true,
                         "example": "desc",
                         "kind": "query",
                         "name": "order",
                         "orig": "order",
                         "reqd": false,
-                        "type": "`$STRING`",
-                        "active": true
+                        "type": "`$STRING`"
                       },
                       {
+                        "active": true,
                         "example": "nethack",
                         "kind": "query",
                         "name": "package",
                         "orig": "package",
                         "reqd": false,
-                        "type": "`$ARRAY`",
-                        "active": true
+                        "type": "`$ARRAY`"
                       },
                       {
+                        "active": true,
                         "example": 2,
                         "kind": "query",
                         "name": "page",
                         "orig": "page",
                         "reqd": false,
-                        "type": "`$INTEGER`",
-                        "active": true
+                        "type": "`$INTEGER`"
                       },
                       {
+                        "active": true,
                         "example": 1,
                         "kind": "query",
                         "name": "rows_per_page",
                         "orig": "rows_per_page",
                         "reqd": false,
-                        "type": "`$INTEGER`",
-                        "active": true
+                        "type": "`$INTEGER`"
                       },
                       {
+                        "active": true,
                         "example": "2021-06-25T06:11:39+00:00",
                         "kind": "query",
                         "name": "start",
                         "orig": "start",
                         "reqd": false,
-                        "type": "`$ANY`",
-                        "active": true
+                        "type": "`$ANY`"
                       },
                       {
+                        "active": true,
                         "kind": "query",
                         "name": "topic",
                         "orig": "topic",
                         "reqd": false,
-                        "type": "`$ARRAY`",
-                        "active": true
+                        "type": "`$ARRAY`"
                       },
                       {
+                        "active": true,
                         "example": "toshio",
                         "kind": "query",
                         "name": "user",
                         "orig": "user",
                         "reqd": false,
-                        "type": "`$ARRAY`",
-                        "active": true
+                        "type": "`$ARRAY`"
                       }
                     ]
                   },
@@ -274,14 +249,11 @@
                   "transform": {
                     "req": "`reqdata`",
                     "res": "`body`"
-                  },
-                  "active": true
+                  }
                 }
-              ],
-              "input": "data"
+              ]
             }
           },
-          "active": true,
           "relations": {
             "ancestors": []
           }
@@ -289,9 +261,6 @@
       },
       "feature": {
         "test": {
-          "name": "test",
-          "title": "In-memory mock transport for testing without a live server",
-          "version": "0.0.1",
           "active": true,
           "config": {
             "options": {
@@ -299,6 +268,14 @@
             }
           },
           "hook": {
+            "GetData": {
+              "active": true,
+              "await": false
+            },
+            "GetMatch": {
+              "active": true,
+              "await": false
+            },
             "PostConstruct": {
               "active": true,
               "await": false
@@ -307,25 +284,11 @@
               "active": true,
               "await": false
             },
-            "SetData": {
-              "active": true,
-              "await": false
-            },
-            "GetData": {
-              "active": true,
-              "await": false
-            },
-            "SetMatch": {
-              "active": true
-            },
-            "GetMatch": {
-              "active": true,
+            "PostOperation": {
+              "active": false,
               "await": false
             },
             "PrePoint": {
-              "active": true
-            },
-            "PreSpec": {
               "active": true,
               "await": false
             },
@@ -341,20 +304,32 @@
               "active": true,
               "await": false
             },
+            "PreSpec": {
+              "active": true,
+              "await": false
+            },
             "PreTarget": {
               "active": false,
               "await": false
             },
-            "PostOperation": {
-              "active": false,
+            "SetData": {
+              "active": true,
+              "await": false
+            },
+            "SetMatch": {
+              "active": true,
               "await": false
             }
           },
+          "name": "test",
           "target": {
-            "ts": {
+            "go": {
               "deps": {}
             },
-            "go": {
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
               "deps": {}
             },
             "lua": {
@@ -369,23 +344,30 @@
             "rb": {
               "deps": {}
             },
-            "go-cli": {
-              "deps": {}
-            },
-            "go-mcp": {
+            "ts": {
               "deps": {}
             }
-          }
+          },
+          "title": "In-memory mock transport for testing without a live server",
+          "version": "0.0.1"
         }
       },
       "flow": {
         "BasicSearchFlow": {
+          "active": true,
           "entity": "search",
+          "key$": "BasicSearchFlow",
           "kind": "basic",
           "name": "BasicSearchFlow",
+          "param": {},
           "step": [
             {
+              "active": true,
+              "data": {},
+              "input": {},
+              "match": {},
               "op": "list",
+              "spec": [],
               "valid": [
                 {
                   "apply": "ItemExists",
@@ -393,29 +375,57 @@
                     "ref": "search_ref01"
                   }
                 }
-              ],
-              "active": true,
-              "match": {},
-              "data": {},
-              "input": {},
-              "spec": []
+              ]
             }
-          ],
-          "key$": "BasicSearchFlow",
-          "active": true,
-          "param": {}
+          ]
         }
       },
+      "info": {
+        "contact": {
+          "name": "Fedora Project",
+          "url": "https://apps.fedoraproject.org/datagrepper/"
+        },
+        "description": "Retrieve historical messages sent via Fedora Messaging using HTTP GET requests. Query by username, package, message source, topic, etc. Datagrepper is a web application and JSON API to retrieve historical messages sent via Fedora Messaging.",
+        "license": {
+          "name": "Red Hat and others",
+          "url": "https://apps.fedoraproject.org/datagrepper/"
+        },
+        "servers": [
+          {
+            "description": "Production server",
+            "url": "https://apps.fedoraproject.org/datagrepper/v2"
+          }
+        ],
+        "title": "Fedora Messaging API",
+        "version": "2.0.0"
+      },
+      "option": {},
       "target": {
-        "go-cli": {
-          "title": "Go CLI",
-          "ext": "go",
+        "go": {
+          "active": true,
           "comment": {
             "line": "//"
           },
+          "deps": {},
+          "ext": "go",
           "module": {
             "name": "fedora-messaging"
           },
+          "name": "go",
+          "srcfeature": false,
+          "title": "Golang"
+        },
+        "go-cli": {
+          "active": true,
+          "comment": {
+            "line": "//"
+          },
+          "deps": {},
+          "ext": "go",
+          "module": {
+            "name": "fedora-messaging"
+          },
+          "name": "go-cli",
           "phase": {
             "entity": {
               "active": false
@@ -430,19 +440,19 @@
               "active": false
             }
           },
-          "deps": {},
-          "name": "go-cli",
-          "active": true
+          "title": "Go CLI"
         },
         "go-mcp": {
-          "title": "Go MCP server",
-          "ext": "go",
+          "active": true,
           "comment": {
             "line": "//"
           },
+          "deps": {},
+          "ext": "go",
           "module": {
             "name": "fedora-messaging"
           },
+          "name": "go-mcp",
           "phase": {
             "entity": {
               "active": false
@@ -457,138 +467,120 @@
               "active": false
             }
           },
-          "deps": {},
-          "name": "go-mcp",
-          "active": true
-        },
-        "ts": {
-          "title": "TypeScript",
-          "ext": "ts",
-          "comment": {
-            "line": "//"
-          },
-          "module": {
-            "name": "fedora-messaging"
-          },
-          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
-          "deps": {
-            "dotenv": {
-              "active": true,
-              "version": "^17.4.2",
-              "kind": "dev"
-            },
-            "typescript": {
-              "active": true,
-              "version": "^5.9.3",
-              "kind": "dev"
-            },
-            "@types/node": {
-              "active": true,
-              "version": "^25.6.0",
-              "kind": "dev"
-            }
-          },
-          "name": "ts",
-          "active": true
-        },
-        "go": {
-          "title": "Golang",
-          "ext": "go",
-          "comment": {
-            "line": "//"
-          },
-          "module": {
-            "name": "fedora-messaging"
-          },
-          "srcfeature": false,
-          "deps": {},
-          "name": "go",
-          "active": true
+          "title": "Go MCP server"
         },
         "lua": {
-          "title": "Lua",
-          "ext": "lua",
+          "active": true,
           "comment": {
             "line": "--"
           },
-          "module": {
-            "name": "fedora-messaging"
-          },
-          "srcfeature": false,
           "deps": {
             "dkjson": {
               "active": true,
-              "version": "2.5",
-              "kind": "prod"
+              "kind": "prod",
+              "version": "2.5"
             }
           },
+          "ext": "lua",
+          "module": {
+            "name": "fedora-messaging"
+          },
           "name": "lua",
-          "active": true
+          "srcfeature": false,
+          "title": "Lua"
         },
         "php": {
-          "title": "PHP",
-          "ext": "php",
+          "active": true,
           "comment": {
             "line": "//"
           },
+          "deps": {},
+          "ext": "php",
           "module": {
             "name": "fedora-messaging"
           },
-          "srcfeature": false,
-          "deps": {},
           "name": "php",
-          "active": true
+          "srcfeature": false,
+          "title": "PHP"
         },
         "py": {
-          "title": "Python",
-          "ext": "py",
+          "active": true,
           "comment": {
             "line": "#"
           },
-          "module": {
-            "name": "fedora-messaging"
-          },
-          "srcfeature": false,
           "deps": {
             "requests": {
               "active": true,
-              "version": "2.33",
-              "kind": "prod"
+              "kind": "prod",
+              "version": "2.33"
             }
           },
-          "name": "py",
-          "active": true
-        },
-        "rb": {
-          "title": "Ruby",
-          "ext": "rb",
-          "comment": {
-            "line": "#"
-          },
+          "ext": "py",
           "module": {
             "name": "fedora-messaging"
           },
+          "name": "py",
           "srcfeature": false,
+          "title": "Python"
+        },
+        "rb": {
+          "active": true,
+          "comment": {
+            "line": "#"
+          },
           "deps": {
-            "voxgig-struct": {
-              "active": true,
-              "version": "0.0.10",
-              "kind": "prod"
-            },
             "json": {
               "active": true,
-              "version": "0",
-              "kind": "prod"
+              "kind": "prod",
+              "version": "0"
+            },
+            "voxgig-struct": {
+              "active": true,
+              "kind": "prod",
+              "version": "0.0.10"
             }
           },
+          "ext": "rb",
+          "module": {
+            "name": "fedora-messaging"
+          },
           "name": "rb",
-          "active": true
+          "srcfeature": false,
+          "title": "Ruby"
+        },
+        "ts": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "comment": {
+            "line": "//"
+          },
+          "deps": {
+            "@types/node": {
+              "active": true,
+              "kind": "dev",
+              "version": "^25.6.0"
+            },
+            "dotenv": {
+              "active": true,
+              "kind": "dev",
+              "version": "^17.4.2"
+            },
+            "typescript": {
+              "active": true,
+              "kind": "dev",
+              "version": "^5.9.3"
+            }
+          },
+          "ext": "ts",
+          "module": {
+            "name": "fedora-messaging"
+          },
+          "name": "ts",
+          "title": "TypeScript"
         }
-      },
-      "option": {}
-    },
-    "def": {
-      "desc": ""
+      }
     }
-  }
+  },
+  "name": "fedora-messaging",
+  "origin": "voxgig-sdk"
 }

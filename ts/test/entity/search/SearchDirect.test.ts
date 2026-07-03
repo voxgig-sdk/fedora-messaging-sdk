@@ -79,12 +79,14 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'FEDORAMESSAGING_TEST_SEARCH_ENTID': {},
     'FEDORAMESSAGING_TEST_LIVE': 'FALSE',
+    'FEDORAMESSAGING_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.FEDORAMESSAGING_TEST_LIVE
 
   if (live) {
     const client = new FedoraMessagingSDK({
+      apikey: env.FEDORAMESSAGING_APIKEY,
     })
 
     let idmap: any = env['FEDORAMESSAGING_TEST_SEARCH_ENTID']

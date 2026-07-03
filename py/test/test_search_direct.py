@@ -61,12 +61,14 @@ def _search_direct_setup(mockres):
     env = runner.env_override({
         "FEDORAMESSAGING_TEST_SEARCH_ENTID": {},
         "FEDORAMESSAGING_TEST_LIVE": "FALSE",
+        "FEDORAMESSAGING_APIKEY": "NONE",
     })
 
     live = env.get("FEDORAMESSAGING_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
+            "apikey": env.get("FEDORAMESSAGING_APIKEY"),
         }
         client = FedoraMessagingSDK(merged_opts)
         return {

@@ -68,12 +68,14 @@ function search_direct_setup($mockres)
     $env = Runner::env_override([
         "FEDORAMESSAGING_TEST_SEARCH_ENTID" => [],
         "FEDORAMESSAGING_TEST_LIVE" => "FALSE",
+        "FEDORAMESSAGING_APIKEY" => "NONE",
     ]);
 
     $live = $env["FEDORAMESSAGING_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
+            "apikey" => $env["FEDORAMESSAGING_APIKEY"],
         ];
         $client = new FedoraMessagingSDK($merged_opts);
         return [

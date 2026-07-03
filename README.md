@@ -1,22 +1,8 @@
 # FedoraMessaging SDK
 
-Query historical Fedora Messaging events by user, package, topic, or time range
+Fedora Messaging API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Fedora Messaging API
-
-Datagrepper is a web application and JSON API that lets you retrieve historical messages sent across the [Fedora Messaging](https://fedora-messaging.readthedocs.io/) bus. It is operated by the [Fedora Project](https://fedoraproject.org/) infrastructure team and queries messages that have been consumed and persisted by the companion service Datanommer.
-
-What you get from the API:
-
-- Search across Fedora's full historical message archive (Bodhi updates, wiki edits, Koji builds, askbot activity, and more).
-- Filter by `category`, `user`, `package`, `topic`, or `agent`, with corresponding `not_*` negative filters that exclude matches.
-- Time-window queries via `start` and `end` (POSIX timestamps or ISO 8601) or a rolling `delta` in seconds.
-- Pagination with `page` and `rows_per_page`, plus ordering via `order=desc` (default) or `order=asc`.
-- JSON responses containing the echoed query arguments, pagination metadata, total count, and a `raw_messages` array.
-
-Operational notes: the public base URL is `https://apps.fedoraproject.org/datagrepper/v2`, the API is unauthenticated, and CORS is not enabled (call it server-side or via a proxy). Reference documentation lives at `/datagrepper/reference/` and help is available in `#fedora-apps` on Libera Chat.
 
 ## Try it
 
@@ -50,29 +36,31 @@ gem install fedora-messaging-sdk
 luarocks install fedora-messaging-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { FedoraMessagingSDK } from 'fedora-messaging'
 
-const client = new FedoraMessagingSDK({})
+const client = new FedoraMessagingSDK({
+  apikey: process.env.FEDORA-MESSAGING_APIKEY,
+})
 
 // List all searchs
 const searchs = await client.Search().list()
+console.log(searchs.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -102,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Search** | Historical Fedora Messaging events; queried via `GET /v2/search` with category, user, package, topic, agent, and time-range filters. | `/search` |
+| **Search** |  | `/search` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -112,12 +100,16 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from fedoramessaging_sdk import FedoraMessagingSDK
 
-client = FedoraMessagingSDK({})
+client = FedoraMessagingSDK({
+    "apikey": os.environ.get("FEDORA-MESSAGING_APIKEY"),
+})
 
 # List all searchs
-searchs, err = client.Search(None).list(None, None)
+searchs, err = client.Search().list()
+print(searchs)
 ```
 
 ### PHP
@@ -126,10 +118,13 @@ searchs, err = client.Search(None).list(None, None)
 <?php
 require_once 'fedoramessaging_sdk.php';
 
-$client = new FedoraMessagingSDK([]);
+$client = new FedoraMessagingSDK([
+    "apikey" => getenv("FEDORA-MESSAGING_APIKEY"),
+]);
 
 // List all searchs
-[$searchs, $err] = $client->Search(null)->list(null, null);
+[$searchs, $err] = $client->Search()->list();
+print_r($searchs);
 ```
 
 ### Golang
@@ -137,10 +132,13 @@ $client = new FedoraMessagingSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/fedora-messaging-sdk/go"
 
-client := sdk.NewFedoraMessagingSDK(map[string]any{})
+client := sdk.NewFedoraMessagingSDK(map[string]any{
+    "apikey": os.Getenv("FEDORA-MESSAGING_APIKEY"),
+})
 
 // List all searchs
 searchs, err := client.Search(nil).List(nil, nil)
+fmt.Println(searchs)
 ```
 
 ### Ruby
@@ -148,10 +146,13 @@ searchs, err := client.Search(nil).List(nil, nil)
 ```ruby
 require_relative "FedoraMessaging_sdk"
 
-client = FedoraMessagingSDK.new({})
+client = FedoraMessagingSDK.new({
+  "apikey" => ENV["FEDORA-MESSAGING_APIKEY"],
+})
 
 # List all searchs
-searchs, err = client.Search(nil).list(nil, nil)
+searchs, err = client.Search().list
+puts searchs
 ```
 
 ### Lua
@@ -159,10 +160,13 @@ searchs, err = client.Search(nil).list(nil, nil)
 ```lua
 local sdk = require("fedora-messaging_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("FEDORA-MESSAGING_APIKEY"),
+})
 
 -- List all searchs
-local searchs, err = client:Search(nil):list(nil, nil)
+local searchs, err = client:Search():list()
+print(searchs)
 ```
 
 ## Unit testing in offline mode
@@ -181,25 +185,21 @@ const result = await client.Search().load({ id: 'test01' })
 ### Python
 
 ```python
-client = FedoraMessagingSDK.test(None, None)
-result, err = client.Search(None).load(
-    {"id": "test01"}, None
-)
+client = FedoraMessagingSDK.test()
+result, err = client.Search().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = FedoraMessagingSDK::test(null, null);
-[$result, $err] = $client->Search(null)->load(
-    ["id" => "test01"], null
-);
+$client = FedoraMessagingSDK::test();
+[$result, $err] = $client->Search()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Search(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -208,19 +208,15 @@ result, err := client.Search(nil).Load(
 ### Ruby
 
 ```ruby
-client = FedoraMessagingSDK.test(nil, nil)
-result, err = client.Search(nil).load(
-  { "id" => "test01" }, nil
-)
+client = FedoraMessagingSDK.test
+result, err = client.Search().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Search(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Search():load({ id = "test01" })
 ```
 
 ## How it works
@@ -324,16 +320,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Fedora Messaging API
-
-- Upstream: [https://apps.fedoraproject.org/datagrepper/](https://apps.fedoraproject.org/datagrepper/)
-- API docs: [https://apps.fedoraproject.org/datagrepper/reference/](https://apps.fedoraproject.org/datagrepper/reference/)
-
-- Datagrepper is developed by Red Hat and Fedora Infrastructure contributors.
-- Source code is hosted on GitHub under the Fedora Infra organisation.
-- Message data is part of the public Fedora project event stream and can be reused subject to Fedora's project policies.
-- No API key is required to query the public endpoint; please be considerate with request volume.
 
 ---
 
