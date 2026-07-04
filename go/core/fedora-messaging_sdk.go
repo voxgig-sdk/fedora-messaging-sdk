@@ -245,6 +245,9 @@ func (sdk *FedoraMessagingSDK) Direct(fetchargs map[string]any) (map[string]any,
 }
 
 
+// Search returns a Search entity bound to this client.
+// Idiomatic usage: client.Search(nil).List(nil, nil) or
+// client.Search(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *FedoraMessagingSDK) Search(data map[string]any) FedoraMessagingEntity {
 	return NewSearchEntityFunc(sdk, data)
 }

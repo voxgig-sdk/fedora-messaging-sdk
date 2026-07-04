@@ -119,7 +119,6 @@ func searchBasicSetup(extra map[string]any) *entityTestSetup {
 		"FEDORAMESSAGING_TEST_SEARCH_ENTID": idmap,
 		"FEDORAMESSAGING_TEST_LIVE":      "FALSE",
 		"FEDORAMESSAGING_TEST_EXPLAIN":   "FALSE",
-		"FEDORAMESSAGING_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["FEDORAMESSAGING_TEST_SEARCH_ENTID"])
@@ -130,7 +129,6 @@ func searchBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["FEDORAMESSAGING_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
-				"apikey": env["FEDORAMESSAGING_APIKEY"],
 			},
 			extra,
 		})

@@ -92,7 +92,6 @@ function search_basic_setup(extra)
     ["FEDORAMESSAGING_TEST_SEARCH_ENTID"] = idmap,
     ["FEDORAMESSAGING_TEST_LIVE"] = "FALSE",
     ["FEDORAMESSAGING_TEST_EXPLAIN"] = "FALSE",
-    ["FEDORAMESSAGING_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -104,7 +103,6 @@ function search_basic_setup(extra)
   if env["FEDORAMESSAGING_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
-        apikey = env["FEDORAMESSAGING_APIKEY"],
       },
       extra or {},
     })

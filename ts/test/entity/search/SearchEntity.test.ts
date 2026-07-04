@@ -113,7 +113,6 @@ function basicSetup(extra?: any) {
     'FEDORA_MESSAGING_TEST_SEARCH_ENTID': idmap,
     'FEDORA_MESSAGING_TEST_LIVE': 'FALSE',
     'FEDORA_MESSAGING_TEST_EXPLAIN': 'FALSE',
-    'FEDORA_MESSAGING_APIKEY': 'NONE',
   })
 
   idmap = env['FEDORA_MESSAGING_TEST_SEARCH_ENTID']
@@ -123,7 +122,6 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new FedoraMessagingSDK(merge([
       {
-        apikey: env.FEDORA_MESSAGING_APIKEY,
       },
       extra
     ]))
