@@ -28,16 +28,14 @@ require_relative "FedoraMessaging_sdk"
 client = FedoraMessagingSDK.new
 ```
 
-### 2. List searchs
+### 2. List search records
 
 ```ruby
 begin
-  result = client.search.list
-  if result.is_a?(Array)
-    result.each do |item|
-      d = item.data_get
-      puts "#{d["id"]} #{d["name"]}"
-    end
+  # list returns an Array of Search records — iterate directly.
+  searchs = client.Search.list
+  searchs.each do |item|
+    puts "#{item["id"]} #{item["name"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -85,13 +83,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = FedoraMessagingSDK.test
+client = FedoraMessagingSDK.test({
+  "entity" => { "search" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.search.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+search = client.Search.load({ "id" => "test01" })
+puts search
 ```
 
 ### Use a custom fetch function
@@ -229,7 +231,7 @@ API path: `/search`
 
 ### Search
 
-Create an instance: `const search = client.search`
+Create an instance: `search = client.Search`
 
 #### Operations
 
@@ -251,8 +253,9 @@ Create an instance: `const search = client.search`
 
 #### Example: List
 
-```ts
-const searchs = await client.search.list()
+```ruby
+# list returns an Array of Search records (raises on error).
+searchs = client.Search.list
 ```
 
 
@@ -327,7 +330,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-search = client.search
+search = client.Search
 search.load({ "id" => "example_id" })
 
 # search.data_get now returns the loaded search data

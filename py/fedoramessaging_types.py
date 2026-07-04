@@ -4,31 +4,33 @@
 # params (op.<name>.points[].args.params[]). Field/param types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Do not edit by hand.
+#
+# These are TypedDicts, not dataclasses: the SDK ops return/accept plain dicts
+# at runtime, and a TypedDict IS a dict shape, so the types match the runtime.
+# Optional (req:false) keys are modelled as TypedDict key-optionality
+# (total=False), split into a required base + total=False subclass when a type
+# has both required and optional keys.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Optional, Any
+from typing import TypedDict, Any
 
 
-@dataclass
-class Search:
-    category: Optional[str] = None
-    i: Optional[int] = None
-    msg: Optional[dict] = None
-    msg_id: Optional[str] = None
-    timestamp: Optional[float] = None
-    topic: Optional[str] = None
-    username: Optional[str] = None
+class Search(TypedDict, total=False):
+    category: str
+    i: int
+    msg: dict
+    msg_id: str
+    timestamp: float
+    topic: str
+    username: str
 
 
-@dataclass
-class SearchListMatch:
-    category: Optional[str] = None
-    i: Optional[int] = None
-    msg: Optional[dict] = None
-    msg_id: Optional[str] = None
-    timestamp: Optional[float] = None
-    topic: Optional[str] = None
-    username: Optional[str] = None
-
+class SearchListMatch(TypedDict, total=False):
+    category: str
+    i: int
+    msg: dict
+    msg_id: str
+    timestamp: float
+    topic: str
+    username: str
