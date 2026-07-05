@@ -8,7 +8,7 @@ Complete API reference for the FedoraMessaging Python SDK.
 ### Constructor
 
 ```python
-from fedora-messaging_sdk import FedoraMessagingSDK
+from fedoramessaging_sdk import FedoraMessagingSDK
 
 client = FedoraMessagingSDK(options)
 ```
@@ -87,22 +87,22 @@ search = client.Search()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `category` | ``$STRING`` | No |  |
-| `i` | ``$INTEGER`` | No |  |
-| `msg` | ``$OBJECT`` | No |  |
-| `msg_id` | ``$STRING`` | No |  |
-| `timestamp` | ``$NUMBER`` | No |  |
-| `topic` | ``$STRING`` | No |  |
-| `username` | ``$STRING`` | No |  |
+| `category` | `str` | No |  |
+| `i` | `int` | No |  |
+| `msg` | `dict` | No |  |
+| `msg_id` | `str` | No |  |
+| `timestamp` | `float` | No |  |
+| `topic` | `str` | No |  |
+| `username` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Search().list({})
+results = client.Search().list()
 for search in results:
     print(search)
 ```

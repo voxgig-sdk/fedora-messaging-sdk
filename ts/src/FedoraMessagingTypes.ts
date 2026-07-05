@@ -15,5 +15,13 @@ export interface Search {
   username?: string
 }
 
-export type SearchListMatch = Partial<Search>
+export interface SearchListMatch {
+  category?: string
+  i?: number
+  msg?: Record<string, any>
+  msg_id?: string
+  timestamp?: number
+  topic?: string
+  username?: string
+}
 

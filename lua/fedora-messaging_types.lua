@@ -16,6 +16,13 @@
 ---@field username? string
 
 ---@class SearchListMatch
+---@field category? string
+---@field i? number
+---@field msg? table
+---@field msg_id? string
+---@field timestamp? number
+---@field topic? string
+---@field username? string
 
 local M = {}
 

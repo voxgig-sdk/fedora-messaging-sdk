@@ -8,7 +8,7 @@ Complete API reference for the FedoraMessaging Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'fedora-messaging_sdk'
+require_relative 'FedoraMessaging_sdk'
 
 client = FedoraMessagingSDK.new(options)
 ```
@@ -93,22 +93,22 @@ search = client.Search
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `category` | ``$STRING`` | No |  |
-| `i` | ``$INTEGER`` | No |  |
-| `msg` | ``$OBJECT`` | No |  |
-| `msg_id` | ``$STRING`` | No |  |
-| `timestamp` | ``$NUMBER`` | No |  |
-| `topic` | ``$STRING`` | No |  |
-| `username` | ``$STRING`` | No |  |
+| `category` | `String` | No |  |
+| `i` | `Integer` | No |  |
+| `msg` | `Hash` | No |  |
+| `msg_id` | `String` | No |  |
+| `timestamp` | `Float` | No |  |
+| `topic` | `String` | No |  |
+| `username` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Search.list(nil)
+results = client.Search.list
 ```
 
 ### Common Methods

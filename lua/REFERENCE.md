@@ -90,13 +90,13 @@ local search = client:Search(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `category` | ``$STRING`` | No |  |
-| `i` | ``$INTEGER`` | No |  |
-| `msg` | ``$OBJECT`` | No |  |
-| `msg_id` | ``$STRING`` | No |  |
-| `timestamp` | ``$NUMBER`` | No |  |
-| `topic` | ``$STRING`` | No |  |
-| `username` | ``$STRING`` | No |  |
+| `category` | `string` | No |  |
+| `i` | `number` | No |  |
+| `msg` | `table` | No |  |
+| `msg_id` | `string` | No |  |
+| `timestamp` | `number` | No |  |
+| `topic` | `string` | No |  |
+| `username` | `string` | No |  |
 
 ### Operations
 
