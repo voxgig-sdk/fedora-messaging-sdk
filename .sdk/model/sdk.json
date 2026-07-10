@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -391,14 +388,17 @@
           "name": "Red Hat and others",
           "url": "https://apps.fedoraproject.org/datagrepper/"
         },
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Production server",
             "url": "https://apps.fedoraproject.org/datagrepper/v2"
           }
         ],
+        "summary": "Retrieve historical messages sent via Fedora Messaging using HTTP GET requests.",
         "title": "Fedora Messaging API",
-        "version": "2.0.0"
+        "version": "2.0.0",
+        "website": "https://apps.fedoraproject.org/datagrepper/"
       },
       "option": {},
       "target": {
@@ -451,6 +451,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -501,6 +504,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },

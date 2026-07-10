@@ -20,9 +20,9 @@ main: {
           url: "https://apps.fedoraproject.org/datagrepper/v2"
         }
       ]
+      summary: "Retrieve historical messages sent via Fedora Messaging using HTTP GET requests."
       title: "Fedora Messaging API"
       version: "2.0.0"
+      website: "https://apps.fedoraproject.org/datagrepper/"
     }
   }
-}
-
