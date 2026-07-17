@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- FedoraMessaging SDK exists test
 
 local sdk = require("fedora-messaging_sdk")
 
