@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from fedoramessaging_sdk.utility.voxgig_struct import voxgig_struct as vs
 from fedoramessaging_sdk import FedoraMessagingSDK
-from core import helpers
+from fedoramessaging_sdk.core import helpers
 from test import runner
 
 
@@ -58,11 +58,11 @@ def _search_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "FEDORAMESSAGING_TEST_SEARCH_ENTID": {},
-        "FEDORAMESSAGING_TEST_LIVE": "FALSE",
+        "FEDORA_MESSAGING_TEST_SEARCH_ENTID": {},
+        "FEDORA_MESSAGING_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("FEDORAMESSAGING_TEST_LIVE") == "TRUE"
+    live = env.get("FEDORA_MESSAGING_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

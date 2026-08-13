@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import FedoraMessagingControl
-from core.error import FedoraMessagingError
-from core.result import FedoraMessagingResult
-from core.spec import FedoraMessagingSpec
+from fedoramessaging_sdk.config import make_config
+from fedoramessaging_sdk.features import _make_feature
+from fedoramessaging_sdk.core.control import FedoraMessagingControl
+from fedoramessaging_sdk.core.error import FedoraMessagingError
+from fedoramessaging_sdk.core.result import FedoraMessagingResult
+from fedoramessaging_sdk.core.spec import FedoraMessagingSpec
 
 
 # True when this SDK was generated with the named feature.

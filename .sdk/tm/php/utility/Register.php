@@ -23,6 +23,7 @@ require_once __DIR__ . '/MakeUrl.php';
 require_once __DIR__ . '/Param.php';
 require_once __DIR__ . '/PrepareAuth.php';
 require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
 require_once __DIR__ . '/PrepareHeaders.php';
 require_once __DIR__ . '/PrepareMethod.php';
 require_once __DIR__ . '/PrepareParams.php';
@@ -59,6 +60,8 @@ FedoraMessagingUtility::setRegistrar(function (FedoraMessagingUtility $u): void 
     $u->prepare_params = [FedoraMessagingPrepareParams::class, 'call'];
     $u->prepare_path = [FedoraMessagingPreparePath::class, 'call'];
     $u->prepare_query = [FedoraMessagingPrepareQuery::class, 'call'];
+    $u->graphql_body = [FedoraMessagingGraphql::class, 'body'];
+    $u->graphql_errors = [FedoraMessagingGraphql::class, 'errors'];
     $u->result_basic = [FedoraMessagingResultBasic::class, 'call'];
     $u->result_body = [FedoraMessagingResultBody::class, 'call'];
     $u->result_headers = [FedoraMessagingResultHeaders::class, 'call'];

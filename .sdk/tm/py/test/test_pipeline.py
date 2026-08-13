@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import FedoraMessagingSDK
-from core.error import FedoraMessagingError
-from core.result import FedoraMessagingResult
-from core.response import FedoraMessagingResponse
-from core.spec import FedoraMessagingSpec
-from feature.base_feature import FedoraMessagingBaseFeature
+from projectname_sdk.core.error import FedoraMessagingError
+from projectname_sdk.core.result import FedoraMessagingResult
+from projectname_sdk.core.response import FedoraMessagingResponse
+from projectname_sdk.core.spec import FedoraMessagingSpec
+from projectname_sdk.feature.base_feature import FedoraMessagingBaseFeature
 
 
 def _client():

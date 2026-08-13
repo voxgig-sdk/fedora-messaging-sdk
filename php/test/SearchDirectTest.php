@@ -66,11 +66,11 @@ function search_direct_setup($mockres)
     $calls = new \ArrayObject();
 
     $env = Runner::env_override([
-        "FEDORAMESSAGING_TEST_SEARCH_ENTID" => [],
-        "FEDORAMESSAGING_TEST_LIVE" => "FALSE",
+        "FEDORA_MESSAGING_TEST_SEARCH_ENTID" => [],
+        "FEDORA_MESSAGING_TEST_LIVE" => "FALSE",
     ]);
 
-    $live = $env["FEDORAMESSAGING_TEST_LIVE"] === "TRUE";
+    $live = $env["FEDORA_MESSAGING_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [

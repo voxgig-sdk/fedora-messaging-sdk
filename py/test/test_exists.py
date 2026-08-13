@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# FedoraMessaging SDK exists test
 
 import pytest
 from fedoramessaging_sdk import FedoraMessagingSDK

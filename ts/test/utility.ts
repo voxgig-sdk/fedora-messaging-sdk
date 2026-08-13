@@ -62,8 +62,8 @@ function makeCtrl(explain: boolean) {
 // Overrides configuration values with environment variables if available
 function envOverride(m: Record<string, any>) {
   if (
-    'TRUE' === process.env.FEDORAMESSAGING_TEST_LIVE ||
-    'TRUE' === process.env.FEDORAMESSAGING_TEST_OVERRIDE
+    'TRUE' === process.env.FEDORA_MESSAGING_TEST_LIVE ||
+    'TRUE' === process.env.FEDORA_MESSAGING_TEST_OVERRIDE
   ) {
     Object.entries(m).map(n => {
       let envval = process.env[n[0]]
@@ -74,7 +74,7 @@ function envOverride(m: Record<string, any>) {
     })
   }
 
-  m.FEDORAMESSAGING_TEST_EXPLAIN = process.env.FEDORAMESSAGING_TEST_EXPLAIN || m.FEDORAMESSAGING_TEST_EXPLAIN
+  m.FEDORA_MESSAGING_TEST_EXPLAIN = process.env.FEDORA_MESSAGING_TEST_EXPLAIN || m.FEDORA_MESSAGING_TEST_EXPLAIN
 
   return m
 }

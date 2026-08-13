@@ -43,8 +43,8 @@ class FedoraMessagingTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('FEDORAMESSAGING_TEST_LIVE');
-        $override = self::getenv('FEDORAMESSAGING_TEST_OVERRIDE');
+        $live = self::getenv('FEDORA_MESSAGING_TEST_LIVE');
+        $override = self::getenv('FEDORA_MESSAGING_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class FedoraMessagingTestRunner
             }
         }
 
-        $explain = self::getenv('FEDORAMESSAGING_TEST_EXPLAIN');
+        $explain = self::getenv('FEDORA_MESSAGING_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['FEDORAMESSAGING_TEST_EXPLAIN'] = $explain;
+            $m['FEDORA_MESSAGING_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

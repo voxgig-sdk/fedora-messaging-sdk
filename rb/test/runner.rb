@@ -23,8 +23,8 @@ module FedoraMessagingTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("FEDORAMESSAGING_TEST_LIVE")
-    override = getenv("FEDORAMESSAGING_TEST_OVERRIDE")
+    live = getenv("FEDORA_MESSAGING_TEST_LIVE")
+    override = getenv("FEDORA_MESSAGING_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module FedoraMessagingTestRunner
       end
     end
 
-    explain = getenv("FEDORAMESSAGING_TEST_EXPLAIN")
-    m["FEDORAMESSAGING_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("FEDORA_MESSAGING_TEST_EXPLAIN")
+    m["FEDORA_MESSAGING_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

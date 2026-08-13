@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ FedoraMessagingUtility.registrar = ->(u) {
   u.prepare_params = FedoraMessagingUtilities::PrepareParams
   u.prepare_path = FedoraMessagingUtilities::PreparePath
   u.prepare_query = FedoraMessagingUtilities::PrepareQuery
+  u.graphql_body = FedoraMessagingUtilities::GraphqlBody
+  u.graphql_errors = FedoraMessagingUtilities::GraphqlErrors
   u.result_basic = FedoraMessagingUtilities::ResultBasic
   u.result_body = FedoraMessagingUtilities::ResultBody
   u.result_headers = FedoraMessagingUtilities::ResultHeaders
