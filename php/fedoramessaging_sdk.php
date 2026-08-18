@@ -40,7 +40,7 @@ class FedoraMessagingSDK
         $utility = new FedoraMessagingUtility();
         $this->_utility = $utility;
 
-        $config = FedoraMessagingConfig::make_config();
+        $config = FedoraMessagingConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

@@ -5,6 +5,29 @@ declare(strict_types=1);
 
 class FedoraMessagingConfig
 {
+    /** @var array<string,mixed>|null */
+    private static ?array $shared_config = null;
+
+    /**
+     * Return the process-wide config, built once on first use. The SDK reads
+     * the config on every request and never writes to it, so one instance is
+     * shared by every client rather than rebuilt per client.
+     *
+     * PHP arrays are copy-on-write, so callers that do mutate the result get
+     * their own copy and cannot disturb the shared one.
+     */
+    public static function shared_config(): array
+    {
+        if (self::$shared_config === null) {
+            self::$shared_config = self::make_config();
+        }
+        return self::$shared_config;
+    }
+
+    /**
+     * Build a fresh, fully materialised config array. Every call rebuilds the
+     * whole structure, so prefer shared_config unless you need a private copy.
+     */
     public static function make_config(): array
     {
         return [
@@ -31,53 +54,32 @@ class FedoraMessagingConfig
         'search' => [
           'fields' => [
             [
-              'active' => true,
               'name' => 'category',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 0,
             ],
             [
-              'active' => true,
               'name' => 'i',
-              'req' => false,
               'type' => '`$INTEGER`',
-              'index$' => 1,
             ],
             [
-              'active' => true,
               'name' => 'msg',
-              'req' => false,
               'type' => '`$OBJECT`',
-              'index$' => 2,
             ],
             [
-              'active' => true,
               'name' => 'msg_id',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 3,
             ],
             [
-              'active' => true,
               'name' => 'timestamp',
-              'req' => false,
               'type' => '`$NUMBER`',
-              'index$' => 4,
             ],
             [
-              'active' => true,
               'name' => 'topic',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 5,
             ],
             [
-              'active' => true,
               'name' => 'username',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 6,
             ],
           ],
           'name' => 'search',
@@ -87,145 +89,112 @@ class FedoraMessagingConfig
               'name' => 'list',
               'points' => [
                 [
-                  'active' => true,
                   'args' => [
                     'query' => [
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'agent',
                         'orig' => 'agent',
-                        'reqd' => false,
                         'type' => '`$ARRAY`',
                       ],
                       [
-                        'active' => true,
                         'example' => 'bodhi',
                         'kind' => 'query',
                         'name' => 'category',
                         'orig' => 'category',
-                        'reqd' => false,
                         'type' => '`$ARRAY`',
                       ],
                       [
-                        'active' => true,
                         'example' => 172800,
                         'kind' => 'query',
                         'name' => 'delta',
                         'orig' => 'delta',
-                        'reqd' => false,
                         'type' => '`$NUMBER`',
                       ],
                       [
-                        'active' => true,
                         'example' => '2021-06-25T06:11:40+00:00',
                         'kind' => 'query',
                         'name' => 'end',
                         'orig' => 'end',
-                        'reqd' => false,
                         'type' => '`$ANY`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'not_agent',
                         'orig' => 'not_agent',
-                        'reqd' => false,
                         'type' => '`$ARRAY`',
                       ],
                       [
-                        'active' => true,
                         'example' => 'buildsys',
                         'kind' => 'query',
                         'name' => 'not_category',
                         'orig' => 'not_category',
-                        'reqd' => false,
                         'type' => '`$ARRAY`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'not_package',
                         'orig' => 'not_package',
-                        'reqd' => false,
                         'type' => '`$ARRAY`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'not_topic',
                         'orig' => 'not_topic',
-                        'reqd' => false,
                         'type' => '`$ARRAY`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'not_user',
                         'orig' => 'not_user',
-                        'reqd' => false,
                         'type' => '`$ARRAY`',
                       ],
                       [
-                        'active' => true,
                         'example' => 'desc',
                         'kind' => 'query',
                         'name' => 'order',
                         'orig' => 'order',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'example' => 'nethack',
                         'kind' => 'query',
                         'name' => 'package',
                         'orig' => 'package',
-                        'reqd' => false,
                         'type' => '`$ARRAY`',
                       ],
                       [
-                        'active' => true,
                         'example' => 2,
                         'kind' => 'query',
                         'name' => 'page',
                         'orig' => 'page',
-                        'reqd' => false,
                         'type' => '`$INTEGER`',
                       ],
                       [
-                        'active' => true,
                         'example' => 1,
                         'kind' => 'query',
                         'name' => 'rows_per_page',
                         'orig' => 'rows_per_page',
-                        'reqd' => false,
                         'type' => '`$INTEGER`',
                       ],
                       [
-                        'active' => true,
                         'example' => '2021-06-25T06:11:39+00:00',
                         'kind' => 'query',
                         'name' => 'start',
                         'orig' => 'start',
-                        'reqd' => false,
                         'type' => '`$ANY`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'topic',
                         'orig' => 'topic',
-                        'reqd' => false,
                         'type' => '`$ARRAY`',
                       ],
                       [
-                        'active' => true,
                         'example' => 'toshio',
                         'kind' => 'query',
                         'name' => 'user',
                         'orig' => 'user',
-                        'reqd' => false,
                         'type' => '`$ARRAY`',
                       ],
                     ],
@@ -260,10 +229,8 @@ class FedoraMessagingConfig
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'index$' => 0,
                 ],
               ],
-              'key$' => 'list',
             ],
           ],
           'relations' => [

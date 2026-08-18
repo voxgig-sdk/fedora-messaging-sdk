@@ -28,7 +28,7 @@ class FedoraMessagingSDK
     utility = FedoraMessagingUtility.new
     @_utility = utility
 
-    config = FedoraMessagingConfig.make_config
+    config = FedoraMessagingConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,
