@@ -93,13 +93,13 @@ search = client.Search
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `category` | `String` | No |  |
-| `i` | `Integer` | No |  |
-| `msg` | `Hash` | No |  |
-| `msg_id` | `String` | No |  |
-| `timestamp` | `Float` | No |  |
-| `topic` | `String` | No |  |
-| `username` | `String` | No |  |
+| `category` | `String` | No | Message category |
+| `i` | `Integer` | No | Message ID |
+| `msg` | `Hash` | No | Message body/payload |
+| `msg_id` | `String` | No | Unique message identifier |
+| `timestamp` | `Float` | No | Message timestamp |
+| `topic` | `String` | No | Message topic |
+| `username` | `String` | No | Username associated with the message |
 
 ### Operations
 

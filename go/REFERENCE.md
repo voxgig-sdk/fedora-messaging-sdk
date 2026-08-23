@@ -98,13 +98,13 @@ fmt.Println(search.GetName()) // "search"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `category` | `string` | No |  |
-| `i` | `int` | No |  |
-| `msg` | `map[string]any` | No |  |
-| `msg_id` | `string` | No |  |
-| `timestamp` | `float64` | No |  |
-| `topic` | `string` | No |  |
-| `username` | `string` | No |  |
+| `category` | `string` | No | Message category |
+| `i` | `int` | No | Message ID |
+| `msg` | `map[string]any` | No | Message body/payload |
+| `msg_id` | `string` | No | Unique message identifier |
+| `timestamp` | `float64` | No | Message timestamp |
+| `topic` | `string` | No | Message topic |
+| `username` | `string` | No | Username associated with the message |
 
 ### Operations
 

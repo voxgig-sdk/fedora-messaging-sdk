@@ -90,13 +90,13 @@ local search = client:Search(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `category` | `string` | No |  |
-| `i` | `number` | No |  |
-| `msg` | `table` | No |  |
-| `msg_id` | `string` | No |  |
-| `timestamp` | `number` | No |  |
-| `topic` | `string` | No |  |
-| `username` | `string` | No |  |
+| `category` | `string` | No | Message category |
+| `i` | `number` | No | Message ID |
+| `msg` | `table` | No | Message body/payload |
+| `msg_id` | `string` | No | Unique message identifier |
+| `timestamp` | `number` | No | Message timestamp |
+| `topic` | `string` | No | Message topic |
+| `username` | `string` | No | Username associated with the message |
 
 ### Operations
 

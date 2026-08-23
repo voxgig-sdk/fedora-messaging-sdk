@@ -6,7 +6,7 @@ The Golang SDK for the FedoraMessaging API — an entity-oriented client using s
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.Search(nil)` — each with the same small set of operations (`List`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -260,13 +260,13 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"category"` |  |
-| `"i"` |  |
-| `"msg"` |  |
-| `"msg_id"` |  |
-| `"timestamp"` |  |
-| `"topic"` |  |
-| `"username"` |  |
+| `"category"` | Message category |
+| `"i"` | Message ID |
+| `"msg"` | Message body/payload |
+| `"msg_id"` | Unique message identifier |
+| `"timestamp"` | Message timestamp |
+| `"topic"` | Message topic |
+| `"username"` | Username associated with the message |
 
 Operations: List.
 
@@ -291,13 +291,13 @@ Create an instance: `search := client.Search(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `category` | `string` |  |
-| `i` | `int` |  |
-| `msg` | `map[string]any` |  |
-| `msg_id` | `string` |  |
-| `timestamp` | `float64` |  |
-| `topic` | `string` |  |
-| `username` | `string` |  |
+| `category` | `string` | Message category |
+| `i` | `int` | Message ID |
+| `msg` | `map[string]any` | Message body/payload |
+| `msg_id` | `string` | Unique message identifier |
+| `timestamp` | `float64` | Message timestamp |
+| `topic` | `string` | Message topic |
+| `username` | `string` | Username associated with the message |
 
 #### Example: List
 

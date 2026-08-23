@@ -92,13 +92,13 @@ $search = $client->Search();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `category` | `string` | No |  |
-| `i` | `int` | No |  |
-| `msg` | `array` | No |  |
-| `msg_id` | `string` | No |  |
-| `timestamp` | `float` | No |  |
-| `topic` | `string` | No |  |
-| `username` | `string` | No |  |
+| `category` | `string` | No | Message category |
+| `i` | `int` | No | Message ID |
+| `msg` | `array` | No | Message body/payload |
+| `msg_id` | `string` | No | Unique message identifier |
+| `timestamp` | `float` | No | Message timestamp |
+| `topic` | `string` | No | Message topic |
+| `username` | `string` | No | Username associated with the message |
 
 ### Operations
 

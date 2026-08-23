@@ -36,42 +36,49 @@
               "active": true,
               "name": "category",
               "req": false,
+              "short": "Message category",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "i",
               "req": false,
+              "short": "Message ID",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "msg",
               "req": false,
+              "short": "Message body/payload",
               "type": "`$OBJECT`"
             },
             {
               "active": true,
               "name": "msg_id",
               "req": false,
+              "short": "Unique message identifier",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "timestamp",
               "req": false,
+              "short": "Message timestamp",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "topic",
               "req": false,
+              "short": "Message topic",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "username",
               "req": false,
+              "short": "Username associated with the message",
               "type": "`$STRING`"
             }
           ],

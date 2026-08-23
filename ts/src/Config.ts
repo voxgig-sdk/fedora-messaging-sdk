@@ -19,9 +19,20 @@ class Config {
     return fi
   }
 
+  // False for a feature added at runtime via options.extend (station's
+  // adopt path) - the constructor uses this to skip makeFeature for names
+  // no generated class backs.
+  hasFeature(this: any, fn: string) {
+    return null != FEATURE_CLASS[fn]
+  }
+
 
   main = {
     name: 'FedoraMessaging',
+        slug: "fedora-messaging",
+    version: "0.0.1",
+    target: "ts",
+
   }
 
 
@@ -56,30 +67,37 @@ class Config {
       "fields": [
         {
           "name": "category",
+          "short": "Message category",
           "type": "`$STRING`"
         },
         {
           "name": "i",
+          "short": "Message ID",
           "type": "`$INTEGER`"
         },
         {
           "name": "msg",
+          "short": "Message body/payload",
           "type": "`$OBJECT`"
         },
         {
           "name": "msg_id",
+          "short": "Unique message identifier",
           "type": "`$STRING`"
         },
         {
           "name": "timestamp",
+          "short": "Message timestamp",
           "type": "`$NUMBER`"
         },
         {
           "name": "topic",
+          "short": "Message topic",
           "type": "`$STRING`"
         },
         {
           "name": "username",
+          "short": "Username associated with the message",
           "type": "`$STRING`"
         }
       ],

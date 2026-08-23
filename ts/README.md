@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -287,13 +287,13 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `category` |  |
-| `i` |  |
-| `msg` |  |
-| `msg_id` |  |
-| `timestamp` |  |
-| `topic` |  |
-| `username` |  |
+| `category` | Message category |
+| `i` | Message ID |
+| `msg` | Message body/payload |
+| `msg_id` | Unique message identifier |
+| `timestamp` | Message timestamp |
+| `topic` | Message topic |
+| `username` | Username associated with the message |
 
 Operations: list.
 
@@ -318,13 +318,13 @@ Create an instance: `const search = client.Search()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `category` | `string` |  |
-| `i` | `number` |  |
-| `msg` | `Record<string, any>` |  |
-| `msg_id` | `string` |  |
-| `timestamp` | `number` |  |
-| `topic` | `string` |  |
-| `username` | `string` |  |
+| `category` | `string` | Message category |
+| `i` | `number` | Message ID |
+| `msg` | `Record<string, any>` | Message body/payload |
+| `msg_id` | `string` | Unique message identifier |
+| `timestamp` | `number` | Message timestamp |
+| `topic` | `string` | Message topic |
+| `username` | `string` | Username associated with the message |
 
 #### Example: List
 

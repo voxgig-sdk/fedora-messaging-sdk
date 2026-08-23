@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "FedoraMessaging",
+			"slug": "fedora-messaging",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -33,30 +36,37 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "category",
+						"short": "Message category",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "i",
+						"short": "Message ID",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "msg",
+						"short": "Message body/payload",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "msg_id",
+						"short": "Unique message identifier",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "timestamp",
+						"short": "Message timestamp",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "topic",
+						"short": "Message topic",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "username",
+						"short": "Username associated with the message",
 						"type": "`$STRING`",
 					},
 				},

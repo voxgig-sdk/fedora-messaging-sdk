@@ -237,13 +237,13 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `category` |  |
-| `i` |  |
-| `msg` |  |
-| `msg_id` |  |
-| `timestamp` |  |
-| `topic` |  |
-| `username` |  |
+| `category` | Message category |
+| `i` | Message ID |
+| `msg` | Message body/payload |
+| `msg_id` | Unique message identifier |
+| `timestamp` | Message timestamp |
+| `topic` | Message topic |
+| `username` | Username associated with the message |
 
 Operations: List.
 
@@ -268,13 +268,13 @@ Create an instance: `search = client.Search`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `category` | `String` |  |
-| `i` | `Integer` |  |
-| `msg` | `Hash` |  |
-| `msg_id` | `String` |  |
-| `timestamp` | `Float` |  |
-| `topic` | `String` |  |
-| `username` | `String` |  |
+| `category` | `String` | Message category |
+| `i` | `Integer` | Message ID |
+| `msg` | `Hash` | Message body/payload |
+| `msg_id` | `String` | Unique message identifier |
+| `timestamp` | `Float` | Message timestamp |
+| `topic` | `String` | Message topic |
+| `username` | `String` | Username associated with the message |
 
 #### Example: List
 

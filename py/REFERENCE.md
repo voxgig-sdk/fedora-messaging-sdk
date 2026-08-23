@@ -87,13 +87,13 @@ search = client.Search()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `category` | `str` | No |  |
-| `i` | `int` | No |  |
-| `msg` | `dict` | No |  |
-| `msg_id` | `str` | No |  |
-| `timestamp` | `float` | No |  |
-| `topic` | `str` | No |  |
-| `username` | `str` | No |  |
+| `category` | `str` | No | Message category |
+| `i` | `int` | No | Message ID |
+| `msg` | `dict` | No | Message body/payload |
+| `msg_id` | `str` | No | Unique message identifier |
+| `timestamp` | `float` | No | Message timestamp |
+| `topic` | `str` | No | Message topic |
+| `username` | `str` | No | Username associated with the message |
 
 ### Operations
 

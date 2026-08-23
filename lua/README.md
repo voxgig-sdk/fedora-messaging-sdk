@@ -231,13 +231,13 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `category` |  |
-| `i` |  |
-| `msg` |  |
-| `msg_id` |  |
-| `timestamp` |  |
-| `topic` |  |
-| `username` |  |
+| `category` | Message category |
+| `i` | Message ID |
+| `msg` | Message body/payload |
+| `msg_id` | Unique message identifier |
+| `timestamp` | Message timestamp |
+| `topic` | Message topic |
+| `username` | Username associated with the message |
 
 Operations: List.
 
@@ -262,13 +262,13 @@ Create an instance: `local search = client:Search(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `category` | `string` |  |
-| `i` | `number` |  |
-| `msg` | `table` |  |
-| `msg_id` | `string` |  |
-| `timestamp` | `number` |  |
-| `topic` | `string` |  |
-| `username` | `string` |  |
+| `category` | `string` | Message category |
+| `i` | `number` | Message ID |
+| `msg` | `table` | Message body/payload |
+| `msg_id` | `string` | Unique message identifier |
+| `timestamp` | `number` | Message timestamp |
+| `topic` | `string` | Message topic |
+| `username` | `string` | Username associated with the message |
 
 #### Example: List
 

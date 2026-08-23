@@ -247,13 +247,13 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `category` |  |
-| `i` |  |
-| `msg` |  |
-| `msg_id` |  |
-| `timestamp` |  |
-| `topic` |  |
-| `username` |  |
+| `category` | Message category |
+| `i` | Message ID |
+| `msg` | Message body/payload |
+| `msg_id` | Unique message identifier |
+| `timestamp` | Message timestamp |
+| `topic` | Message topic |
+| `username` | Username associated with the message |
 
 Operations: List.
 
@@ -278,13 +278,13 @@ Create an instance: `$search = $client->Search();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `category` | `string` |  |
-| `i` | `int` |  |
-| `msg` | `array` |  |
-| `msg_id` | `string` |  |
-| `timestamp` | `float` |  |
-| `topic` | `string` |  |
-| `username` | `string` |  |
+| `category` | `string` | Message category |
+| `i` | `int` | Message ID |
+| `msg` | `array` | Message body/payload |
+| `msg_id` | `string` | Unique message identifier |
+| `timestamp` | `float` | Message timestamp |
+| `topic` | `string` | Message topic |
+| `username` | `string` | Username associated with the message |
 
 #### Example: List
 

@@ -243,13 +243,13 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `category` |  |
-| `i` |  |
-| `msg` |  |
-| `msg_id` |  |
-| `timestamp` |  |
-| `topic` |  |
-| `username` |  |
+| `category` | Message category |
+| `i` | Message ID |
+| `msg` | Message body/payload |
+| `msg_id` | Unique message identifier |
+| `timestamp` | Message timestamp |
+| `topic` | Message topic |
+| `username` | Username associated with the message |
 
 Operations: List.
 
@@ -274,13 +274,13 @@ Create an instance: `search = client.Search()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `category` | `str` |  |
-| `i` | `int` |  |
-| `msg` | `dict` |  |
-| `msg_id` | `str` |  |
-| `timestamp` | `float` |  |
-| `topic` | `str` |  |
-| `username` | `str` |  |
+| `category` | `str` | Message category |
+| `i` | `int` | Message ID |
+| `msg` | `dict` | Message body/payload |
+| `msg_id` | `str` | Unique message identifier |
+| `timestamp` | `float` | Message timestamp |
+| `topic` | `str` | Message topic |
+| `username` | `str` | Username associated with the message |
 
 #### Example: List
 

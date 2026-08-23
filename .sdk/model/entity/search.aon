@@ -8,36 +8,43 @@ main: kit: entity: search: {
     {
       name: "category"
       req: false
+      short: "Message category"
       type: "`$STRING`"
     }
     {
       name: "i"
       req: false
+      short: "Message ID"
       type: "`$INTEGER`"
     }
     {
       name: "msg"
       req: false
+      short: "Message body/payload"
       type: "`$OBJECT`"
     }
     {
       name: "msg_id"
       req: false
+      short: "Unique message identifier"
       type: "`$STRING`"
     }
     {
       name: "timestamp"
       req: false
+      short: "Message timestamp"
       type: "`$NUMBER`"
     }
     {
       name: "topic"
       req: false
+      short: "Message topic"
       type: "`$STRING`"
     }
     {
       name: "username"
       req: false
+      short: "Username associated with the message"
       type: "`$STRING`"
     }
   ]
