@@ -42,6 +42,7 @@ class FedoraMessagingConfig
           'options' => [
             'active' => false,
           ],
+          'transport' => 'base',
         ],
             ],
             "options" => [
