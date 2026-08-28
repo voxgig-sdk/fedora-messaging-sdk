@@ -27,10 +27,19 @@ class Search(TypedDict, total=False):
 
 
 class SearchListMatch(TypedDict, total=False):
-    category: str
-    i: int
-    msg: dict
-    msg_id: str
-    timestamp: float
-    topic: str
-    username: str
+    agent: list
+    category: list
+    delta: float
+    end: Any
+    not_agent: list
+    not_category: list
+    not_package: list
+    not_topic: list
+    not_user: list
+    order: str
+    package: list
+    page: int
+    rows_per_page: int
+    start: Any
+    topic: list
+    user: list

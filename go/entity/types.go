@@ -25,13 +25,22 @@ type Search struct {
 
 // SearchListMatch is the typed request payload for Search.ListTyped.
 type SearchListMatch struct {
-	Category *string `json:"category,omitempty"`
-	I *int `json:"i,omitempty"`
-	Msg *map[string]any `json:"msg,omitempty"`
-	MsgId *string `json:"msg_id,omitempty"`
-	Timestamp *float64 `json:"timestamp,omitempty"`
-	Topic *string `json:"topic,omitempty"`
-	Username *string `json:"username,omitempty"`
+	Agent *[]any `json:"agent,omitempty"`
+	Category *[]any `json:"category,omitempty"`
+	Delta *float64 `json:"delta,omitempty"`
+	End *any `json:"end,omitempty"`
+	NotAgent *[]any `json:"not_agent,omitempty"`
+	NotCategory *[]any `json:"not_category,omitempty"`
+	NotPackage *[]any `json:"not_package,omitempty"`
+	NotTopic *[]any `json:"not_topic,omitempty"`
+	NotUser *[]any `json:"not_user,omitempty"`
+	Order *string `json:"order,omitempty"`
+	Package *[]any `json:"package,omitempty"`
+	Page *int `json:"page,omitempty"`
+	RowsPerPage *int `json:"rows_per_page,omitempty"`
+	Start *any `json:"start,omitempty"`
+	Topic *[]any `json:"topic,omitempty"`
+	User *[]any `json:"user,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the
