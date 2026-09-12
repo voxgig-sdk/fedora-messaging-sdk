@@ -64,6 +64,7 @@ module FedoraMessagingConfig
               "type" => "`$STRING`",
             },
             {
+              "format" => "double",
               "name" => "timestamp",
               "short" => "Message timestamp",
               "type" => "`$NUMBER`",
@@ -199,8 +200,10 @@ module FedoraMessagingConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/search",
-                  "parts" => [
-                    "search",
+                  "segments" => [
+                    {
+                      "lit" => "search",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -226,6 +229,9 @@ module FedoraMessagingConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "search",
+                  ],
                 },
               ],
             },
