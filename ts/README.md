@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { FedoraMessagingSDK } from '@voxgig-sdk/fedora-messaging'
+import { FedoraMessagingSDK } from '@voxgig-sdk/fedora-messaging-sdk'
 
 const client = new FedoraMessagingSDK()
 ```
@@ -415,7 +415,7 @@ fedora-messaging/
 Import the SDK from the package root:
 
 ```ts
-import { FedoraMessagingSDK } from '@voxgig-sdk/fedora-messaging'
+import { FedoraMessagingSDK } from '@voxgig-sdk/fedora-messaging-sdk'
 ```
 
 ### Entity state

@@ -105,7 +105,7 @@ local results, err = client:Search():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/fedora-messaging` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fedora-messaging-sdk/releases) |
+| TypeScript | `@voxgig-sdk/fedora-messaging-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fedora-messaging-sdk/releases) |
 | Python | `voxgig-sdk-fedora-messaging` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fedora-messaging-sdk/releases) |
 | PHP | `voxgig-sdk/fedora-messaging` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fedora-messaging-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/fedora-messaging-sdk/go` | `go get github.com/voxgig-sdk/fedora-messaging-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:Search():list()
 ### TypeScript
 
 ```ts
-import { FedoraMessagingSDK } from '@voxgig-sdk/fedora-messaging'
+import { FedoraMessagingSDK } from '@voxgig-sdk/fedora-messaging-sdk'
 
 const client = new FedoraMessagingSDK()
 
