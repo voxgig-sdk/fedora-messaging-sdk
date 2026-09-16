@@ -1,12 +1,18 @@
 # FedoraMessaging SDK feature factory
 
 from fedoramessaging_sdk.feature.base_feature import FedoraMessagingBaseFeature
+from fedoramessaging_sdk.feature.ratelimit_feature import FedoraMessagingRatelimitFeature
+from fedoramessaging_sdk.feature.retry_feature import FedoraMessagingRetryFeature
 from fedoramessaging_sdk.feature.test_feature import FedoraMessagingTestFeature
+from fedoramessaging_sdk.feature.timeout_feature import FedoraMessagingTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: FedoraMessagingBaseFeature(),
+    "ratelimit": lambda: FedoraMessagingRatelimitFeature(),
+    "retry": lambda: FedoraMessagingRetryFeature(),
     "test": lambda: FedoraMessagingTestFeature(),
+    "timeout": lambda: FedoraMessagingTimeoutFeature(),
 }
 
 

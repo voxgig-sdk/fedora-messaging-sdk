@@ -3,7 +3,7 @@
     "search": {
       "SEARCH00": {
         "category": "s46",
-        "i": "s47",
+        "i": 71,
         "msg": {},
         "msg_id": "MSG01",
         "timestamp": 74,
@@ -12,7 +12,7 @@
       },
       "SEARCH01": {
         "category": "s8c",
-        "i": "s8d",
+        "i": 141,
         "msg": {},
         "msg_id": "MSG01",
         "timestamp": 144,
@@ -21,7 +21,7 @@
       },
       "SEARCH02": {
         "category": "sd2",
-        "i": "sd3",
+        "i": 211,
         "msg": {},
         "msg_id": "MSG01",
         "timestamp": 214,
@@ -34,12 +34,498 @@
     "search": {
       "search_ref01": {
         "category": "s118",
-        "i": "s119",
+        "i": 281,
         "msg": {},
         "msg_id": "MSG01",
         "timestamp": 284,
         "topic": "s11d",
         "username": "s11e"
+      }
+    }
+  },
+  "requests": {
+    "GET /search": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "searchMessages",
+        "parameters": [
+          {
+            "description": "Start timestamp (POSIX timestamp or ISO 8601 date/time string). Default is delta seconds before end time.",
+            "example": "2021-06-25T06:11:39+00:00",
+            "in": "query",
+            "name": "start",
+            "required": false,
+            "schema": {
+              "oneOf": [
+                {
+                  "format": "double",
+                  "type": "number"
+                },
+                {
+                  "format": "date-time",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          {
+            "description": "End timestamp (POSIX timestamp or ISO 8601 date/time string). Default is current time unless both start and delta are set.",
+            "example": "2021-06-25T06:11:40+00:00",
+            "in": "query",
+            "name": "end",
+            "required": false,
+            "schema": {
+              "oneOf": [
+                {
+                  "format": "double",
+                  "type": "number"
+                },
+                {
+                  "format": "date-time",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          {
+            "description": "Time range in seconds from end time (e.g., 172800 for 2 days). Used to calculate start time if not explicitly provided.",
+            "example": 172800,
+            "in": "query",
+            "name": "delta",
+            "required": false,
+            "schema": {
+              "format": "double",
+              "type": "number"
+            }
+          },
+          {
+            "description": "Number of results per page for pagination.",
+            "example": 1,
+            "in": "query",
+            "name": "rows_per_page",
+            "required": false,
+            "schema": {
+              "default": 100,
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Page number for pagination (1-indexed).",
+            "example": 2,
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "schema": {
+              "default": 1,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Sort order for results. 'desc' for newest to oldest, 'asc' for oldest to newest.",
+            "in": "query",
+            "name": "order",
+            "required": false,
+            "schema": {
+              "default": "desc",
+              "enum": [
+                "desc",
+                "asc"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "Filter messages by category (e.g., 'bodhi', 'wiki', 'buildsys'). Can be specified multiple times for OR logic.",
+            "example": "bodhi",
+            "explode": true,
+            "in": "query",
+            "name": "category",
+            "required": false,
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "style": "form"
+          },
+          {
+            "description": "Filter messages by username. Can be specified multiple times for OR logic.",
+            "example": "toshio",
+            "explode": true,
+            "in": "query",
+            "name": "user",
+            "required": false,
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "style": "form"
+          },
+          {
+            "description": "Filter messages by package name. Can be specified multiple times for OR logic.",
+            "example": "nethack",
+            "explode": true,
+            "in": "query",
+            "name": "package",
+            "required": false,
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "style": "form"
+          },
+          {
+            "description": "Filter messages by topic. Can be specified multiple times for OR logic.",
+            "explode": true,
+            "in": "query",
+            "name": "topic",
+            "required": false,
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "style": "form"
+          },
+          {
+            "description": "Filter messages by agent. Can be specified multiple times for OR logic.",
+            "explode": true,
+            "in": "query",
+            "name": "agent",
+            "required": false,
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "style": "form"
+          },
+          {
+            "description": "Exclude messages by category. Can be specified multiple times.",
+            "example": "buildsys",
+            "explode": true,
+            "in": "query",
+            "name": "not_category",
+            "required": false,
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "style": "form"
+          },
+          {
+            "description": "Exclude messages by username. Can be specified multiple times.",
+            "explode": true,
+            "in": "query",
+            "name": "not_user",
+            "required": false,
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "style": "form"
+          },
+          {
+            "description": "Exclude messages by package name. Can be specified multiple times.",
+            "explode": true,
+            "in": "query",
+            "name": "not_package",
+            "required": false,
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "style": "form"
+          },
+          {
+            "description": "Exclude messages by topic. Can be specified multiple times.",
+            "explode": true,
+            "in": "query",
+            "name": "not_topic",
+            "required": false,
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "style": "form"
+          },
+          {
+            "description": "Exclude messages by agent. Can be specified multiple times.",
+            "explode": true,
+            "in": "query",
+            "name": "not_agent",
+            "required": false,
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "style": "form"
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "arguments": {
+                    "agents": [],
+                    "categories": [],
+                    "delta": 1728000,
+                    "end": 1366221938,
+                    "not_agents": [],
+                    "not_categories": [],
+                    "not_packages": [],
+                    "not_topics": [],
+                    "not_users": [],
+                    "order": "desc",
+                    "packages": [],
+                    "page": 1,
+                    "rows_per_page": 1,
+                    "start": 1364493938,
+                    "topics": [],
+                    "users": []
+                  },
+                  "count": 1,
+                  "pages": 2052,
+                  "raw_messages": [],
+                  "total": 2052
+                },
+                "schema": {
+                  "properties": {
+                    "arguments": {
+                      "description": "Echo of all query parameters used to execute the search",
+                      "properties": {
+                        "agents": {
+                          "description": "List of agents filtered",
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        },
+                        "categories": {
+                          "description": "List of categories filtered",
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        },
+                        "delta": {
+                          "description": "Time range in seconds",
+                          "format": "double",
+                          "type": "number"
+                        },
+                        "end": {
+                          "description": "End timestamp (POSIX)",
+                          "format": "double",
+                          "type": "number"
+                        },
+                        "not_agents": {
+                          "description": "List of agents excluded",
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        },
+                        "not_categories": {
+                          "description": "List of categories excluded",
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        },
+                        "not_packages": {
+                          "description": "List of packages excluded",
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        },
+                        "not_topics": {
+                          "description": "List of topics excluded",
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        },
+                        "not_users": {
+                          "description": "List of users excluded",
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        },
+                        "order": {
+                          "description": "Sort order",
+                          "enum": [
+                            "desc",
+                            "asc"
+                          ],
+                          "type": "string"
+                        },
+                        "packages": {
+                          "description": "List of packages filtered",
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        },
+                        "page": {
+                          "description": "Current page number",
+                          "type": "integer"
+                        },
+                        "rows_per_page": {
+                          "description": "Number of rows per page",
+                          "type": "integer"
+                        },
+                        "start": {
+                          "description": "Start timestamp (POSIX)",
+                          "format": "double",
+                          "type": "number"
+                        },
+                        "topics": {
+                          "description": "List of topics filtered",
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        },
+                        "users": {
+                          "description": "List of users filtered",
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "count": {
+                      "description": "Number of messages returned in this page",
+                      "type": "integer"
+                    },
+                    "pages": {
+                      "description": "Total number of pages available",
+                      "type": "integer"
+                    },
+                    "raw_messages": {
+                      "description": "Array of raw message objects from Fedora Messaging",
+                      "items": {
+                        "description": "A Fedora Messaging message object",
+                        "properties": {
+                          "category": {
+                            "description": "Message category",
+                            "type": "string"
+                          },
+                          "i": {
+                            "description": "Message ID",
+                            "type": "integer"
+                          },
+                          "msg": {
+                            "additionalProperties": true,
+                            "description": "Message body/payload",
+                            "type": "object"
+                          },
+                          "msg_id": {
+                            "description": "Unique message identifier",
+                            "type": "string"
+                          },
+                          "timestamp": {
+                            "description": "Message timestamp",
+                            "format": "double",
+                            "type": "number"
+                          },
+                          "topic": {
+                            "description": "Message topic",
+                            "type": "string"
+                          },
+                          "username": {
+                            "description": "Username associated with the message",
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "total": {
+                      "description": "Total number of messages matching the query",
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "arguments",
+                    "count",
+                    "pages",
+                    "total",
+                    "raw_messages"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response with messages matching the query"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "description": "Error message",
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Bad request - invalid parameters"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "description": "Error message",
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Internal server error"
+          }
+        },
+        "securitySource": "unspecified"
       }
     }
   }

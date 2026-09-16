@@ -4,7 +4,10 @@ declare(strict_types=1);
 // FedoraMessaging SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class FedoraMessagingFeatures
@@ -14,8 +17,14 @@ class FedoraMessagingFeatures
         switch ($name) {
             case "base":
                 return new FedoraMessagingBaseFeature();
+            case "ratelimit":
+                return new FedoraMessagingRatelimitFeature();
+            case "retry":
+                return new FedoraMessagingRetryFeature();
             case "test":
                 return new FedoraMessagingTestFeature();
+            case "timeout":
+                return new FedoraMessagingTimeoutFeature();
             default:
                 return new FedoraMessagingBaseFeature();
         }
@@ -31,7 +40,10 @@ class FedoraMessagingFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;
