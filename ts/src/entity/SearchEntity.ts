@@ -19,7 +19,6 @@ import type {
   SearchListMatch,
 } from '../FedoraMessagingTypes'
 
-// TODO: needs Entity superclass
 class SearchEntity extends FedoraMessagingEntityBase<Search> {
 
   constructor(client: FedoraMessagingSDK, entopts: any) {

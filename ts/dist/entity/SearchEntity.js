@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SearchEntity = void 0;
 const FedoraMessagingEntityBase_1 = require("../FedoraMessagingEntityBase");
-// TODO: needs Entity superclass
 class SearchEntity extends FedoraMessagingEntityBase_1.FedoraMessagingEntityBase {
     constructor(client, entopts) {
         super(client, entopts);

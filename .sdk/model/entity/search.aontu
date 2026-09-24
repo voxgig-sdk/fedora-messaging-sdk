@@ -1,0 +1,235 @@
+# Entity: search
+
+main: kit: entity: search: {
+
+  alias: field: {}
+
+  fields: {
+    category: {
+      h: "Category"
+      n: "category"
+      r: false
+      sh: "Message category"
+      t: "`$STRING`"
+    }
+    i: {
+      h: "I"
+      n: "i"
+      r: false
+      sh: "Message ID"
+      t: "`$INTEGER`"
+    }
+    msg: {
+      h: "Msg"
+      n: "msg"
+      r: false
+      sh: "Message body/payload"
+      t: "`$OBJECT`"
+    }
+    msg_id: {
+      h: "Msg Id"
+      n: "msg_id"
+      r: false
+      sh: "Unique message identifier"
+      t: "`$STRING`"
+    }
+    timestamp: {
+      fo: "double"
+      h: "Timestamp"
+      n: "timestamp"
+      r: false
+      sh: "Message timestamp"
+      t: "`$NUMBER`"
+    }
+    topic: {
+      h: "Topic"
+      n: "topic"
+      r: false
+      sh: "Message topic"
+      t: "`$STRING`"
+    }
+    username: {
+      h: "Username"
+      n: "username"
+      r: false
+      sh: "Username associated with the message"
+      t: "`$STRING`"
+    }
+  }
+
+  name: "search"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /search"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "agent"
+                or: "agent"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                ex: "bodhi"
+                k: "query"
+                n: "category"
+                or: "category"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                ex: 172800
+                k: "query"
+                n: "delta"
+                or: "delta"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                ex: "2021-06-25T06:11:40+00:00"
+                k: "query"
+                n: "end"
+                or: "end"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "not_agent"
+                or: "not_agent"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                ex: "buildsys"
+                k: "query"
+                n: "not_category"
+                or: "not_category"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                k: "query"
+                n: "not_package"
+                or: "not_package"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                k: "query"
+                n: "not_topic"
+                or: "not_topic"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                k: "query"
+                n: "not_user"
+                or: "not_user"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                ex: "desc"
+                k: "query"
+                n: "order"
+                or: "order"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "nethack"
+                k: "query"
+                n: "package"
+                or: "package"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                ex: 2
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "rows_per_page"
+                or: "rows_per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: "2021-06-25T06:11:39+00:00"
+                k: "query"
+                n: "start"
+                or: "start"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "topic"
+                or: "topic"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                ex: "toshio"
+                k: "query"
+                n: "user"
+                or: "user"
+                r: false
+                t: "`$ARRAY`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/search"
+          q: {
+            exist: [
+              "agent"
+              "category"
+              "delta"
+              "end"
+              "not_agent"
+              "not_category"
+              "not_package"
+              "not_topic"
+              "not_user"
+              "order"
+              "package"
+              "page"
+              "rows_per_page"
+              "start"
+              "topic"
+              "user"
+            ]
+          }
+          s: [
+            {
+              lit: "search"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

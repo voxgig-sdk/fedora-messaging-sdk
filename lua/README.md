@@ -43,7 +43,7 @@ local searchs, err = client:Search():list()
 if err then error(err) end
 
 for _, item in ipairs(searchs) do
-  print(item["category"])
+  print(item)
 end
 ```
 
